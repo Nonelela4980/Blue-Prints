@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Blue Prints</string>
+    <string name="play_btnText">PLAY</string>
+    <string name="game_rulesBTNText">GAME RULES</string>
+    <string name="game_rules">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+    <string name="version_text">version 1.0.0</string>
+    <string name="startBtn_text">Start</string>
+    <string name="name_hint">NAME</string>
+    <string name="ipAddress_Hint">IP Address</string>
+    <string name="name_error">Please enter your name</string>
+    <string name="ip_address_error">Please enter IP Address</string>
+</resources>

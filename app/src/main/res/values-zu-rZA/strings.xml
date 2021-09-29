@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Blue Prints</string>
+    <string name="play_btnText">Dlala</string>
+    <string name="game_rules">eyimbumbulu yomkhakha wokuphrinta nokuhlelwa kwezinhlamvu. I-Lorem Ipsum bekulokhu kungumbhalo ojwayelekile wemboni kusukela ngeminyaka yama-1500s, lapho iphrinta engaziwa yathatha i-galley yohlobo lwayo yayiklwebha ukwenza incwadi yezinhlobo zezinhlobo. Isinde hhayi amakhulu amahlanu eminyaka kuphela, kepha futhi igxumela ekuhlelweni kokuthayipha nge-elekthronikhi, ihlala ingashintshiwe. Yathandwa kakhulu ngawo-1960 ngokukhishwa kwamashidi e-Letraset aqukethe ama-Lorem Ipsum, futhi muva nje nge-software yokushicilela ideskithophu efana ne-Aldus PageMaker kufaka phakathi izinhlobo ze-Lorem Ipsum.</string>
+    <string name="game_rulesBTNText">Imithetho yomdlalo</string>
+    <string name="version_text">inguqulo 1.0.0</string>
+    <string name="startBtn_text">qala</string>
+    <string name="name_hint">Igama</string>
+    <string name="ipAddress_Hint">IP Address</string>
+    <string name="name_error">" Sicela ufake igama lakho"</string>
+    <string name="ip_address_error">Sicela ufake  i-IP Adress</string>
+</resources>
