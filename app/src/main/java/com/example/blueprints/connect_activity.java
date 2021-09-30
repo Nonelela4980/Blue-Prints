@@ -18,6 +18,7 @@ public class connect_activity extends AppCompatActivity {
         getSupportActionBar().hide(); //hide the actionbar for this activity
         setContentView(R.layout.activity_connect_activity);
 
+        //Hey I'm from git hub
         name_textField = findViewById(R.id.name_textField);
         ip_addressTextField = findViewById(R.id.ipAddress_textField);
     }

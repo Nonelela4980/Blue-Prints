@@ -7,4 +7,9 @@ public class InstructionGive extends Assignment
     {
         this.direction=direction;
     }
+
+    private void initialize(Resource resource)
+    {
+
+    }
 }
