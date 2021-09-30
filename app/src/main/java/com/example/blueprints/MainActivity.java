@@ -18,8 +18,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide(); //hide the actionbar for this activity
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN); //Hides activity bar
+        getSupportActionBar().hide();
+
+        //hide the actionbar for this activity
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //Hides activity bar
         setContentView(R.layout.activity_main);
 
         gameRulesPopUp=new Dialog(this);
@@ -47,10 +50,8 @@ public class MainActivity extends AppCompatActivity {
                gameRulesPopUp.dismiss();
            }
        });
-
         gameRulesPopUp.show();
     }
-
 
     public void closeApplication(View view) {
         finish();
