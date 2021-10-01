@@ -27,6 +27,7 @@ public class connect_activity extends AppCompatActivity {
 
     //hey I'm linux nice to meet
 
+        //hey linux nice to meet you
 
 
         //Hey I'm from git hub
