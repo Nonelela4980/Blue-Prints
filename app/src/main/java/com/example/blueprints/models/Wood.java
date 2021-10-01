@@ -1,4 +1,4 @@
-package com.example.blueprints.cards;
+package com.example.blueprints.models;
 
 public class Wood extends Resource{
     public Wood(int number)

@@ -1,4 +1,4 @@
-package com.example.blueprints.cards;
+package com.example.blueprints.models;
 
 import android.graphics.drawable.Drawable;
 
@@ -7,8 +7,9 @@ import java.util.List;
 public abstract class Assignment {
 
     protected int direction;
-    protected Drawable drawable;
+    protected int drawable;
     protected List<Resource> listOfResources;
+
 
     public int getDirection() {
         return direction;
@@ -18,11 +19,13 @@ public abstract class Assignment {
         this.direction = direction;
     }
 
-    public Drawable getDrawable(int instruction_bank_give_1_brick) {
-        return drawable;
+    protected int getDrawable(int id) {
+        return id;
     }
 
-    public void setDrawable(Drawable drawable) {
+    public int get_drawable(){return drawable;}
+
+    public void setDrawable(int drawable) {
         this.drawable = drawable;
     }
 
@@ -33,4 +36,8 @@ public abstract class Assignment {
     public void setListOfResources(List<Resource> listOfResources) {
         this.listOfResources = listOfResources;
     }
+    /**@param resource, is the resource that the card will have
+     * this method is used to select the  right picture
+     * */
+    public abstract void initialize(Resource resource);
 }
