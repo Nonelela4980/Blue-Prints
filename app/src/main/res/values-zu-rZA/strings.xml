@@ -10,4 +10,5 @@
     <string name="ipAddress_Hint">IP Address</string>
     <string name="name_error">" Sicela ufake igama lakho"</string>
     <string name="ip_address_error">Sicela ufake  i-IP Adress</string>
+    <string name="round_count">Isiyingi</string>
 </resources>

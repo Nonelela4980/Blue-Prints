@@ -9,7 +9,7 @@
         android:roundIcon="@drawable/logo_p3"
         android:supportsRtl="true"
         android:theme="@style/Theme.BluePrints">
-        <activity android:name=".playActivity"></activity>
+        <activity android:name=".playActivity" android:screenOrientation="sensorLandscape"></activity>
         <activity
             android:name=".connect_activity"
             android:screenOrientation="sensorLandscape" />

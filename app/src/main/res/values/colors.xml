@@ -11,4 +11,9 @@
     <color name="activity_color">#CCA14F</color>
     <color name="play_btn_color">#1C676B</color>
     <color name="status_bar">#DCBE85</color>
+    <color name="round_count">#CCA14F</color>
+    <color name="player_frame">#99E8E023</color>
+    <color name="frame2">#6E23DCE8</color>
+    <color name="frame3">#C7BBC6C7</color>
+    <color name="frame4">#853EDA6A</color>
 </resources>
