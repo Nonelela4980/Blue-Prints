@@ -10,7 +10,6 @@ public abstract class Assignment {
     protected int drawable;
     protected List<Resource> listOfResources;
 
-
     public int getDirection() {
         return direction;
     }

@@ -24,12 +24,6 @@ public class connect_activity extends AppCompatActivity {
         setContentView(R.layout.activity_connect_activity);
 
 
-
-    //hey I'm linux nice to meet
-
-        //hey linux nice to meet you
-
-
         //Hey I'm from git hub
         name_textField = findViewById(R.id.name_textField);
         ip_addressTextField = findViewById(R.id.ipAddress_textField);
