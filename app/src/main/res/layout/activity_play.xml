@@ -171,6 +171,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/card_01"
                     android:layout_width="53dp"
                     android:layout_height="46dp"
                     android:layout_marginTop="10dp"
@@ -460,6 +461,7 @@
                         android:id="@+id/imageView100"
                         android:layout_width="8dp"
                         android:layout_height="20dp"
+                        android:layout_gravity="center"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/resource_wood" />
 
@@ -541,6 +543,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
+                        android:gravity="center_vertical"
                         android:text="0"
                         android:textSize="14sp" />
 
