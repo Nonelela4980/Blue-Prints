@@ -11,7 +11,6 @@ public class BluePrints extends Assignment {
         this.victoryPoints = 0;
         this.initialize(resource);
     }
-
     @Override
     public void initialize(Resource resource) {
 

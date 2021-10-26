@@ -4,8 +4,8 @@ import com.example.blueprints.R;
 
 public class BankGive extends Assignment{
 
-    public BankGive(int direction, Resource resource){
-
+    public BankGive(int direction, Resource resource)
+    {
         this.direction=direction;
         this.initialize(resource);
     }
