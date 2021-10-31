@@ -12,13 +12,13 @@
     <color name="play_btn_color">#1C676B</color>
     <color name="status_bar">#DCBE85</color>
     <color name="round_count">#CCA14F</color>
-    <color name="true_path">#5AB95E</color>
+    <color name="true_path">#FFFFFF</color>
     <color name="player_frame">#99E8E023</color>
-    <color name="false_path">#6EA21B1B</color>
-    <color name="central_path">#C7E8D609</color>
+    <color name="false_path">#6FFFFFFF</color>
+    <color name="central_path">#D0D0CA</color>
     <color name="frame4">#853EDA6A</color>
     <color name="player_2_label">#FFEB3B</color>
     <color name="player_1_label">#471E91</color>
     <color name="player_3_label">#17A7B9</color>
-    <color name="player_4_label">#A22B23</color>
+    <color name="player_4_label">#FE0B0B</color>
 </resources>
