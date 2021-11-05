@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
-    <!-- Border -->
-
-    <!-- Body -->
-    <item android:left="2dip"
-        android:top="2dp"
-        android:right="2dp">
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
         <shape>
-            <solid android:color="@color/white"></solid>
+            <solid android:color="@color/true_path"></solid>
             <stroke android:color="@color/black" android:width="1dp"
+                >
 
-                />
+            </stroke>
         </shape>
     </item>
-</layer-list>
+</selector>

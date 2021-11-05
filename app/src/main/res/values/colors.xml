@@ -12,10 +12,10 @@
     <color name="play_btn_color">#1C676B</color>
     <color name="status_bar">#DCBE85</color>
     <color name="round_count">#CCA14F</color>
-    <color name="true_path">#FFFFFF</color>
+    <color name="true_path">#B345EC4C</color>
     <color name="player_frame">#99E8E023</color>
-    <color name="false_path">#6FFFFFFF</color>
-    <color name="central_path">#D0D0CA</color>
+    <color name="false_path">#B3E53935</color>
+    <color name="central_path">#80DADA1A</color>
     <color name="frame4">#853EDA6A</color>
     <color name="player_2_label">#FFEB3B</color>
     <color name="player_1_label">#471E91</color>
