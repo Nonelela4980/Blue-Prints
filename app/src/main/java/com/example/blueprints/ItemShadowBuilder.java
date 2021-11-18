@@ -6,11 +6,13 @@ import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.View;
+import android.widget.RelativeLayout;
 
 public class ItemShadowBuilder extends View.DragShadowBuilder {
     private static Drawable Shadow;
     private int width, height; //width and height of the shadow
     /**creates shadows while dragging*/
+
     public ItemShadowBuilder(View dragView){
         super(dragView);
         Shadow=new ColorDrawable(Color.DKGRAY); //I want the shadow to be grey when dragging
