@@ -1,7 +1,7 @@
 package com.example.blueprints.gamelogic;
 
-import com.example.blueprints.models.Assignment;
-import com.example.blueprints.models.Resource;
+import com.example.blueprints.models.cards.Assignment;
+import com.example.blueprints.models.resources.Resource;
 
 import java.util.List;
 

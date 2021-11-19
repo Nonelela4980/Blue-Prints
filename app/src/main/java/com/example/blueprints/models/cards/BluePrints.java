@@ -1,6 +1,10 @@
-package com.example.blueprints.models;
+package com.example.blueprints.models.cards;
 
 import com.example.blueprints.R;
+import com.example.blueprints.models.cards.Assignment;
+import com.example.blueprints.models.resources.Brick;
+import com.example.blueprints.models.resources.Resource;
+import com.example.blueprints.models.resources.Wood;
 
 public class BluePrints extends Assignment {
 

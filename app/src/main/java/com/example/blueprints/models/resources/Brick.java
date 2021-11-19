@@ -1,4 +1,4 @@
-package com.example.blueprints.models;
+package com.example.blueprints.models.resources;
 
 public class Brick extends Resource{
     public Brick(int number){

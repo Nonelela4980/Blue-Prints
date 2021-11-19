@@ -11,12 +11,12 @@
         android:id="@+id/linearLayoutCompat"
         android:layout_width="126dp"
         android:layout_height="50dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="80dp"
         android:background="@drawable/player1_label"
         android:rotation="0"
         android:rotationX="0"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -511,8 +511,8 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="8dp">
 
-                    <ImageView
-                        android:id="@+id/imageView12"
+                    <com.example.blueprints.ImageCard
+                        android:id="@+id/player_deck1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:srcCompat="@drawable/instruction_bank_give_2_straw" />
@@ -524,8 +524,8 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="8dp">
 
-                    <ImageView
-                        android:id="@+id/imageView13"
+                    <com.example.blueprints.ImageCard
+                        android:id="@+id/player_deck2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:rotationX="0"
@@ -539,8 +539,8 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="8dp">
 
-                    <ImageView
-                        android:id="@+id/imageView14"
+                    <com.example.blueprints.ImageCard
+                        android:id="@+id/player_deck3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:srcCompat="@drawable/instruction_has_3_brick" />
@@ -552,8 +552,8 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="8dp">
 
-                    <ImageView
-                        android:id="@+id/imageView15"
+                    <com.example.blueprints.ImageCard
+                        android:id="@+id/player_deck4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:srcCompat="@drawable/instruction_blueprint_2_straw" />
@@ -565,8 +565,8 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="10dp">
 
-                    <ImageView
-                        android:id="@+id/imageView16"
+                    <com.example.blueprints.ImageCard
+                        android:id="@+id/player_deck5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:srcCompat="@drawable/instruction_give_1_straw" />
@@ -617,7 +617,7 @@
             android:layout_height="match_parent"
             android:rotationX="10">
 
-            <ImageView
+            <com.example.blueprints.ImageCard
                 android:id="@+id/start"
                 android:layout_width="53dp"
                 android:layout_height="46dp"
@@ -627,19 +627,19 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/central_path" />
 
-            <ImageView
-                android:id="@+id/grid_00"
+            <com.example.blueprints.ImageCard
+                android:id="@+id/grid0"
                 android:layout_width="53dp"
                 android:layout_height="46dp"
                 android:layout_marginTop="40dp"
-                app:layout_constraintBottom_toTopOf="@+id/grid_20"
+                app:layout_constraintBottom_toTopOf="@+id/grid10"
                 app:layout_constraintStart_toEndOf="@+id/start"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0"
                 app:srcCompat="@drawable/true_path1" />
 
-            <ImageView
-                android:id="@+id/grid_20"
+            <com.example.blueprints.ImageCard
+                android:id="@+id/grid10"
                 android:layout_width="53dp"
                 android:layout_height="46dp"
                 android:layout_marginBottom="32dp"
@@ -647,8 +647,8 @@
                 app:layout_constraintStart_toEndOf="@+id/start"
                 app:srcCompat="@drawable/false_path" />
 
-            <ImageView
-                android:id="@+id/grid_10"
+            <com.example.blueprints.ImageCard
+                android:id="@+id/grid5"
                 android:layout_width="53dp"
                 android:layout_height="46dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -656,20 +656,20 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/central_path" />
 
-            <ImageView
-                android:id="@+id/grid_01"
+            <com.example.blueprints.ImageCard
+                android:id="@+id/grid1"
                 android:layout_width="53dp"
                 android:layout_height="46dp"
                 android:layout_marginStart="52dp"
                 android:layout_marginTop="40dp"
-                app:layout_constraintBottom_toTopOf="@+id/grid_21"
+                app:layout_constraintBottom_toTopOf="@+id/grid11"
                 app:layout_constraintStart_toEndOf="@+id/start"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0"
                 app:srcCompat="@drawable/true_path1" />
 
-            <ImageView
-                android:id="@+id/grid_21"
+            <com.example.blueprints.ImageCard
+                android:id="@+id/grid11"
                 android:layout_width="53dp"
                 android:layout_height="46dp"
                 android:layout_marginStart="52dp"
@@ -678,17 +678,17 @@
                 app:layout_constraintStart_toEndOf="@+id/start"
                 app:srcCompat="@drawable/false_path" />
 
-            <ImageView
-                android:id="@+id/grid_11"
+            <com.example.blueprints.ImageCard
+                android:id="@+id/grid6"
                 android:layout_width="53dp"
                 android:layout_height="46dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/grid_10"
+                app:layout_constraintStart_toEndOf="@+id/grid5"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/central_path" />
 
-            <ImageView
-                android:id="@+id/grid_22"
+            <com.example.blueprints.ImageCard
+                android:id="@+id/grid12"
                 android:layout_width="53dp"
                 android:layout_height="46dp"
                 android:layout_marginStart="104dp"
@@ -697,20 +697,20 @@
                 app:layout_constraintStart_toEndOf="@+id/start"
                 app:srcCompat="@drawable/false_path" />
 
-            <ImageView
-                android:id="@+id/grid_02"
+            <com.example.blueprints.ImageCard
+                android:id="@+id/grid2"
                 android:layout_width="53dp"
                 android:layout_height="46dp"
                 android:layout_marginStart="104dp"
                 android:layout_marginTop="40dp"
-                app:layout_constraintBottom_toTopOf="@+id/grid_22"
+                app:layout_constraintBottom_toTopOf="@+id/grid12"
                 app:layout_constraintStart_toEndOf="@+id/start"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0"
                 app:srcCompat="@drawable/true_path1" />
 
-            <ImageView
-                android:id="@+id/grid_12"
+            <com.example.blueprints.ImageCard
+                android:id="@+id/grid7"
                 android:layout_width="53dp"
                 android:layout_height="46dp"
                 android:layout_marginStart="104dp"
@@ -719,20 +719,20 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/central_path" />
 
-            <ImageView
-                android:id="@+id/grid_03"
+            <com.example.blueprints.ImageCard
+                android:id="@+id/grid3"
                 android:layout_width="53dp"
                 android:layout_height="46dp"
                 android:layout_marginStart="156dp"
                 android:layout_marginTop="40dp"
-                app:layout_constraintBottom_toTopOf="@+id/grid_23"
+                app:layout_constraintBottom_toTopOf="@+id/grid13"
                 app:layout_constraintStart_toEndOf="@+id/start"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0"
                 app:srcCompat="@drawable/true_path1" />
 
-            <ImageView
-                android:id="@+id/grid_23"
+            <com.example.blueprints.ImageCard
+                android:id="@+id/grid13"
                 android:layout_width="53dp"
                 android:layout_height="46dp"
                 android:layout_marginStart="156dp"
@@ -741,8 +741,8 @@
                 app:layout_constraintStart_toEndOf="@+id/start"
                 app:srcCompat="@drawable/false_path" />
 
-            <ImageView
-                android:id="@+id/grid_13"
+            <com.example.blueprints.ImageCard
+                android:id="@+id/grid8"
                 android:layout_width="53dp"
                 android:layout_height="46dp"
                 android:layout_marginStart="156dp"
@@ -751,8 +751,8 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/central_path" />
 
-            <ImageView
-                android:id="@+id/grid_24"
+            <com.example.blueprints.ImageCard
+                android:id="@+id/grid14"
                 android:layout_width="53dp"
                 android:layout_height="46dp"
                 android:layout_marginStart="208dp"
@@ -761,53 +761,22 @@
                 app:layout_constraintStart_toEndOf="@+id/start"
                 app:srcCompat="@drawable/false_path" />
 
-            <ImageView
-                android:id="@+id/grid_04"
+            <com.example.blueprints.ImageCard
+                android:id="@+id/grid4"
                 android:layout_width="53dp"
                 android:layout_height="46dp"
                 android:layout_marginStart="208dp"
-                app:layout_constraintBottom_toTopOf="@+id/grid_24"
+                app:layout_constraintBottom_toTopOf="@+id/grid14"
                 app:layout_constraintStart_toEndOf="@+id/start"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0"
                 app:srcCompat="@drawable/true_path1" />
 
-            <ImageView
-                android:id="@+id/grid_14"
+            <com.example.blueprints.ImageCard
+                android:id="@+id/grid9"
                 android:layout_width="53dp"
                 android:layout_height="46dp"
                 android:layout_marginStart="208dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/start"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/central_path" />
-
-            <ImageView
-                android:id="@+id/grid_25"
-                android:layout_width="53dp"
-                android:layout_height="46dp"
-                android:layout_marginStart="260dp"
-                android:layout_marginBottom="32dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/start"
-                app:srcCompat="@drawable/false_path" />
-
-            <ImageView
-                android:id="@+id/grid_05"
-                android:layout_width="53dp"
-                android:layout_height="46dp"
-                android:layout_marginStart="260dp"
-                app:layout_constraintBottom_toTopOf="@+id/grid_25"
-                app:layout_constraintStart_toEndOf="@+id/start"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0"
-                app:srcCompat="@drawable/true_path1" />
-
-            <ImageView
-                android:id="@+id/grid_15"
-                android:layout_width="53dp"
-                android:layout_height="46dp"
-                android:layout_marginStart="261dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/start"
                 app:layout_constraintTop_toTopOf="parent"
@@ -860,7 +829,14 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView33"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.25" />
+            app:layout_constraintVertical_bias="0.25" >
+
+            <com.example.blueprints.ImageCard
+                android:id="@+id/imageCard4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/card_back" />
+        </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView4"
@@ -900,8 +876,8 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="15dp"
-            android:layout_height="25dp"
+            android:layout_width="14dp"
+            android:layout_height="24dp"
             android:layout_marginTop="5dp"
             app:layout_constraintBottom_toTopOf="@+id/imageView5"
             app:layout_constraintStart_toEndOf="@+id/imageView33"

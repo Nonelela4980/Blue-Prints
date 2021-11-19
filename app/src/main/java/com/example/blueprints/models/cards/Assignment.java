@@ -1,6 +1,6 @@
-package com.example.blueprints.models;
+package com.example.blueprints.models.cards;
 
-import android.graphics.drawable.Drawable;
+import com.example.blueprints.models.resources.Resource;
 
 import java.util.List;
 

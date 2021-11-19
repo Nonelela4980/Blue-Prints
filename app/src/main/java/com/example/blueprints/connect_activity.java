@@ -6,12 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.example.blueprints.models.BluePrints;
-import com.example.blueprints.models.Straw;
 
 public class connect_activity extends AppCompatActivity {
     TextView name_textField, ip_addressTextField;

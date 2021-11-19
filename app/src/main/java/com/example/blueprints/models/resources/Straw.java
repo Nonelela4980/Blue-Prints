@@ -1,4 +1,4 @@
-package com.example.blueprints.models;
+package com.example.blueprints.models.resources;
 
 public class Straw extends Resource{
 
