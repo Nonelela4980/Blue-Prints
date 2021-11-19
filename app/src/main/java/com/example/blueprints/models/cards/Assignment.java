@@ -1,5 +1,7 @@
 package com.example.blueprints.models.cards;
 
+import android.content.res.Resources;
+
 import com.example.blueprints.models.resources.Resource;
 
 import java.util.List;
@@ -24,7 +26,8 @@ public abstract class Assignment {
 
     public int get_drawable(){return drawable;}
 
-    public void setDrawable(int drawable) {
+    public void setDrawable(String drawable_Url){
+
         this.drawable = drawable;
     }
 

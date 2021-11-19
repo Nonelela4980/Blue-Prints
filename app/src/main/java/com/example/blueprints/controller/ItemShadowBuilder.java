@@ -1,4 +1,4 @@
-package com.example.blueprints;
+package com.example.blueprints.controller;
 
 import android.graphics.Canvas;
 import android.graphics.Color;

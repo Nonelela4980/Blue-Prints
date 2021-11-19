@@ -1,4 +1,4 @@
-package com.example.blueprints;
+package com.example.blueprints.controller;
 import android.content.ClipData;
 import android.util.Log;
 import android.view.MotionEvent;

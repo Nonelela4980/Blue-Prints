@@ -7,6 +7,20 @@
     tools:context=".playActivity"
     android:background="@color/game_rules_color">
 
+    <ImageView
+        android:id="@+id/cofirm_actionBtn"
+        android:layout_width="39dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="10dp"
+        android:onClick="confirm"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.678"
+        app:layout_constraintStart_toEndOf="@+id/undo_actionBtn"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/checked" />
+
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/linearLayoutCompat"
         android:layout_width="126dp"
@@ -787,9 +801,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="735dp"
-        android:layout_height="67dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="475dp"
+        android:layout_height="63dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -829,7 +842,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView33"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.25" >
+            app:layout_constraintVertical_bias="0.25">
 
             <com.example.blueprints.ImageCard
                 android:id="@+id/imageCard4"
@@ -908,5 +921,18 @@
             app:layout_constraintVertical_bias="1.0"
             app:srcCompat="@drawable/resource_wood" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/undo_actionBtn"
+        android:layout_width="39dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bank_style"
+        android:onClick="undo"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/redo_action" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

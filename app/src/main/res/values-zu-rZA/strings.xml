@@ -11,4 +11,5 @@
     <string name="name_error">" Sicela ufake igama lakho"</string>
     <string name="ip_address_error">Sicela ufake  i-IP Adress</string>
     <string name="round_count">Isiyingi</string>
+    <string name="comfirmMove_title">Qinisekisa uHambisa</string>
 </resources>

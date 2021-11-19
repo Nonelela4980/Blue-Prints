@@ -21,4 +21,5 @@
     <color name="player_1_label">#471E91</color>
     <color name="player_3_label">#17A7B9</color>
     <color name="player_4_label">#FE0B0B</color>
+    <color name="undo_action">#2B2B2B</color>
 </resources>
