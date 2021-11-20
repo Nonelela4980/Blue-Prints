@@ -27,7 +27,7 @@ public class ItemDragListener implements View.OnDragListener{
 
     @Override
     public boolean onDrag(View view, DragEvent event) {
-        Log.i("check Drag","drag started");
+
         ImageCard givingImage = (ImageCard) event.getLocalState();
         ImageCard receivingImage = (ImageCard)view;
         int[] views=new int[2];
@@ -51,24 +51,23 @@ public class ItemDragListener implements View.OnDragListener{
 
                 break;
             case DragEvent.ACTION_DROP:
-                if(undo.getVisibility() == View.VISIBLE && confirm.getVisibility() == View.VISIBLE){
-                    gameController.undo(undo, confirm);
+                if(!givingImage.isDeckCard()){
+                    if(undo.getVisibility() == View.VISIBLE && confirm.getVisibility() == View.VISIBLE){
+                        gameController.undo(undo, confirm);
+                    }
+                    gameController.setCurDeck(givingImage);
+                    gameController.setCurGridCard(receivingImage);
+                    gameController.setCurShade(receivingImage.getDrawable());
+                    //previousDrawable=receivingImage.getDrawable();
+                    Drawable image = givingImage.getDrawable();
+                    receivingImage.setImageDrawable(image);
+                    receivingImage.setOnClickListener(v->receivingImage.rotateCard());
+                    Drawable transparentDrawable = new ColorDrawable(Color.TRANSPARENT);
+                    givingImage.setImageDrawable(transparentDrawable);
+                    receivingImage.setOnDragListener(null); /**must no longer take any cards if a card was placed on it*/
+                    givingImage.setHas_card(false);
+                    gameController.Show_theActionButtons(undo,confirm);
                 }
-                gameController.setCurDeck(givingImage);
-                gameController.setCurGridCard(receivingImage);
-                gameController.setCurShade(receivingImage.getDrawable());
-                //previousDrawable=receivingImage.getDrawable();
-                Drawable image = givingImage.getDrawable();
-                receivingImage.setImageDrawable(image);
-                receivingImage.setOnClickListener(v->receivingImage.rotateCard());
-                Drawable transparentDrawable = new ColorDrawable(Color.TRANSPARENT);
-                givingImage.setImageDrawable(transparentDrawable);
-                receivingImage.setOnDragListener(null); /**must no longer take any cards if a card was placed on it*/
-                Log.i("bound","dx is recieving"+receivingImage.getDx());
-//                if(receivingImage.getDx()==1){
-//                    gameController.lockNeigbours();
-//                }
-                gameController.Show_theActionButtons(undo,confirm);
                 break;
             default:break;
         }

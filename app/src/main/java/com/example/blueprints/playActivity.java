@@ -16,19 +16,22 @@ import com.example.blueprints.controller.GameController;
 import com.example.blueprints.controller.ItemDragListener;
 import com.example.blueprints.controller.ItemTouchListener;
 import com.example.blueprints.controller.Neigbours;
+import com.example.blueprints.controller.PlayerHandDragListener;
 import com.example.blueprints.controller.ShowConfirmMove;
+import com.example.blueprints.controller.TrashBinListener;
 
 public class playActivity extends AppCompatActivity  implements Neigbours {
 
     ItemDragListener dragListener;
     ImageCard start;
-    ImageView undo_actionBtn, confirm_actionBtn;
+    ImageView undo_actionBtn, confirm_actionBtn,bin,bin_lid;
 
     //grid0,grid1,grid2,grid3,grid4;
 //    ImageCard grid5,grid6,grid7,grid8,grid9;
 //    ImageCard grid10,grid11,grid12,grid13,grid14;
     ImageCard[] gridBoard;
     ImageCard[] playerDeckCards;
+    int[] player_deckCards; //keeps the id of the player deck ImageCardViews;
     GameController gameController;
     int[][] neighbours = new int[3][5]; //keeps grid item id's
 
@@ -40,12 +43,17 @@ public class playActivity extends AppCompatActivity  implements Neigbours {
         getSupportActionBar().hide(); //hide the actionbar for this activity
         setContentView(R.layout.activity_play);
 
+
         gameController = new GameController(this, this,this);
         gridBoard = initializeGridBoard();
         playerDeckCards = initializePlayerDeckCards();
         undo_actionBtn = findViewById(R.id.undo_actionBtn);
         confirm_actionBtn = findViewById(R.id.cofirm_actionBtn);
+        bin= findViewById(R.id.bin);
+        bin_lid= findViewById(R.id.bin_lid);
 
+        bin.setOnDragListener(new TrashBinListener(gameController));
+        bin_lid.setOnDragListener(new TrashBinListener(gameController));
     }
 
     //Initialize the ImageCards for the board
@@ -112,7 +120,6 @@ public class playActivity extends AppCompatActivity  implements Neigbours {
         gameController.confirm(undo_actionBtn, confirm_actionBtn);
 
     }
-
 
     @Override
     public int[][] getNeigbours() {

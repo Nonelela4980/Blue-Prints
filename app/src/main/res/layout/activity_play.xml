@@ -810,26 +810,17 @@
             android:id="@+id/cardView3"
             android:layout_width="53dp"
             android:layout_height="46dp"
-            android:layout_marginStart="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/cardView"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.333">
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
-            android:layout_width="53dp"
-            android:layout_height="46dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
+            android:layout_marginStart="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/cardView2"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.25">
+            app:layout_constraintVertical_bias="0.333">
 
+            <com.example.blueprints.ImageCard
+                android:id="@+id/deck_card1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/instruction_give_1_brick" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -845,7 +836,7 @@
             app:layout_constraintVertical_bias="0.25">
 
             <com.example.blueprints.ImageCard
-                android:id="@+id/imageCard4"
+                android:id="@+id/unseen_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/card_back" />
@@ -861,6 +852,11 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.333">
 
+            <com.example.blueprints.ImageCard
+                android:id="@+id/deck_card2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/instruction_loop_1_straw" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -872,6 +868,11 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.333">
 
+            <com.example.blueprints.ImageCard
+                android:id="@+id/deck_card3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/instruction_has_3_wood" />
         </androidx.cardview.widget.CardView>
 
         <ImageView

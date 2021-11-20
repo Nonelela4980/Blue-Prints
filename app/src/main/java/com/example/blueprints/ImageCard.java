@@ -13,8 +13,26 @@ import androidx.annotation.Nullable;
 public class ImageCard extends androidx.appcompat.widget.AppCompatImageView implements View.OnClickListener {
 
 
-
+    boolean has_card=false;
+    boolean isDeckCard=false;
     int dx,dy;
+
+    public boolean isDeckCard() {
+        return isDeckCard;
+    }
+
+    public void setDeckCard(boolean deckCard) {
+        isDeckCard = deckCard;
+    }
+
+    public boolean isHas_card() {
+        return has_card;
+    }
+
+    public void setHas_card(boolean has_card) {
+        this.has_card = has_card;
+    }
+
     public ImageCard(@NonNull Context context) {
         super(context);
     }
@@ -38,6 +56,13 @@ public class ImageCard extends androidx.appcompat.widget.AppCompatImageView impl
     @Override
     public void onClick(View v) {
         Log.i("CardClick","Hello I'm clicked");
+        //if it doesn't have a card it the board ImageCard should not rotate
+
+        if(!has_card){
+            Log.i("has card","No card detected");
+            return;
+        }
+        Log.i("has card","Card detected");
         this.rotateCard();
     }
 
