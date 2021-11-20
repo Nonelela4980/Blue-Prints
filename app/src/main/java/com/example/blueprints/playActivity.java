@@ -54,6 +54,9 @@ public class playActivity extends AppCompatActivity  implements Neigbours {
 
         bin.setOnDragListener(new TrashBinListener(gameController));
         bin_lid.setOnDragListener(new TrashBinListener(gameController));
+        ImageCard imageCard=findViewById(R.id.player_deck2);
+        Drawable drawable=getDrawable(R.drawable.instruction_give_right_1_wood);
+        imageCard.setImageDrawable(drawable);
     }
 
     //Initialize the ImageCards for the board

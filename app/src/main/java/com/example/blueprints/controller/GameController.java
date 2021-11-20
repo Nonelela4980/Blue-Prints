@@ -99,7 +99,6 @@ public class GameController {
 
     public void resetNeighbours() {
         int[][] temp = neigbours.getNeigbours();
-//hey
         //String a=
         Log.i("bound", "dx is" + curGridCard.getDx());
 
@@ -201,11 +200,16 @@ public class GameController {
         ImageCard card4=(ImageCard)((playActivity)context).findViewById(R.id.player_deck4);
         ImageCard card5=(ImageCard)((playActivity)context).findViewById(R.id.player_deck5);
 
-        card1.setOnDragListener(new PlayerHandDragListener(this));
-        card2.setOnDragListener(new PlayerHandDragListener(this));
-        card3.setOnDragListener(new PlayerHandDragListener(this));
-        card4.setOnDragListener(new PlayerHandDragListener(this));
-        card5.setOnDragListener(new PlayerHandDragListener(this));
+//        card1.setOnDragListener(new PlayerHandDragListener(this));
+//        card2.setOnDragListener(new PlayerHandDragListener(this));
+//        card3.setOnDragListener(new PlayerHandDragListener(this));
+//        card4.setOnDragListener(new PlayerHandDragListener(this));
+//        card5.setOnDragListener(new PlayerHandDragListener(this));
+        card1.setOnDragListener(new TopDeckCardListener(this));
+        card2.setOnDragListener(new TopDeckCardListener(this));
+        card3.setOnDragListener(new TopDeckCardListener(this));
+        card4.setOnDragListener(new TopDeckCardListener(this));
+        card5.setOnDragListener(new TopDeckCardListener(this));
 
         card1.setHas_card(true);
         card2.setHas_card(true);

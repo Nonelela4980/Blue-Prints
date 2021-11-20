@@ -543,8 +543,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:rotationX="0"
-                        android:rotationY="0"
-                        app:srcCompat="@drawable/instruction_give_right_1_wood" />
+                        android:rotationY="0" />
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView

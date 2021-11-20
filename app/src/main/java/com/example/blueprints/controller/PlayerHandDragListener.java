@@ -30,8 +30,6 @@ public class PlayerHandDragListener implements View.OnDragListener {
                 break;
             case DragEvent.ACTION_DRAG_EXITED:
                 break;
-            case DragEvent.ACTION_DRAG_LOCATION:
-                break;
             case DragEvent.ACTION_DROP:
                 Log.i("Nonelela2", "yhooo2");
                 if (!receivingImage.isHas_card()) {

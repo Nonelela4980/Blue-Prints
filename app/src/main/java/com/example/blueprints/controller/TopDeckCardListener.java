@@ -23,6 +23,7 @@ public class TopDeckCardListener implements View.OnDragListener {
         ImageCard receivingImage = (ImageCard)view;
         int[] views=new int[2];
 
+        Log.i("DragBug1","dropped ended1");
         switch (dragEvent.getAction()) {
             case DragEvent.ACTION_DRAG_STARTED:
                 break;
@@ -39,6 +40,7 @@ public class TopDeckCardListener implements View.OnDragListener {
 
                 break;
             case DragEvent.ACTION_DROP:
+                Log.i("DragBug2","dropped ended2");
                 break;
             default:break;
         }

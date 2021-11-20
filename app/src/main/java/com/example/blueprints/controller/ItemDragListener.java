@@ -62,8 +62,12 @@ public class ItemDragListener implements View.OnDragListener{
                     Drawable image = givingImage.getDrawable();
                     receivingImage.setImageDrawable(image);
                     receivingImage.setOnClickListener(v->receivingImage.rotateCard());
-                    Drawable transparentDrawable = new ColorDrawable(Color.TRANSPARENT);
-                    givingImage.setImageDrawable(transparentDrawable);
+                    //Drawable transparentDrawable = new ColorDrawable(Color.TRANSPARENT);
+                    //givingImage.setImageDrawable(transparentDrawable);
+                    Drawable transparentDrawable = new ColorDrawable(Color.WHITE);
+                    givingImage.setOnDragListener(new PlayerHandDragListener(gameController));
+                    Drawable drawable=gameController.getContext().getDrawable(R.drawable.central_path);
+                    givingImage.setImageDrawable(drawable);
                     receivingImage.setOnDragListener(null); /**must no longer take any cards if a card was placed on it*/
                     givingImage.setHas_card(false);
                     gameController.Show_theActionButtons(undo,confirm);
