@@ -128,12 +128,12 @@ public class GameController {
         return activity;
     }
 
+    /**Player chooses not to confirm or drags another card from the hand*/
     public void undo(ImageView undo_actionBtn, ImageView confirm_actionBtn) {
 
         curDeck.setImageDrawable(curGridCard.getDrawable());
         curGridCard.setImageDrawable(null);
         curGridCard.setImageDrawable(curShade);
-
         //curGridCard.setOnDragListener(new ItemDragListener(this)); /**must now take cards if the card is removed*/
          //put back the drag listeners
         resetNeighbours();
@@ -141,7 +141,8 @@ public class GameController {
         confirm_actionBtn.setVisibility(View.INVISIBLE);
 
     }
-
+    /**@param  undo_actionBtn,confirm_actionBtn are the undo and confirm actions when a player drops a card on the machine
+     * Player chooses to confirm the move*/
     public void confirm(ImageView undo_actionBtn, ImageView confirm_actionBtn) {
 
         lockNeigbours();
@@ -149,6 +150,7 @@ public class GameController {
         confirm_actionBtn.setVisibility(View.INVISIBLE);
     }
 
+    /**When a player drags a card from the player hand the bin opens only removes the card if dropped on it*/
     public void opeBin(){
         binInitial_rotate=bin.getRotation();
         lidInitial_rotate=bin_lid.getRotation();
@@ -158,6 +160,7 @@ public class GameController {
         bin.animate().rotation(angle_bin).setInterpolator(new AccelerateDecelerateInterpolator());
     }
 
+    /**Returns the bin to the initial state(close bin)*/
     public void binInitialState(){
         float angle_lid=bin_lid.getRotation()-32f;
         float angle_bin=bin.getRotation()-10f;
@@ -216,5 +219,10 @@ public class GameController {
         card3.setHas_card(true);
         card4.setHas_card(true);
         card5.setHas_card(true);
+    }
+
+
+    public Drawable getInitialDrawable(){
+       return  ((playActivity)context).getCardInitialDrawable();
     }
 }

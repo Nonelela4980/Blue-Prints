@@ -39,7 +39,6 @@ public class ItemDragListener implements View.OnDragListener{
             case DragEvent.ACTION_DRAG_STARTED:
             break;
             case DragEvent.ACTION_DRAG_ENTERED:
-
                 break;
             case DragEvent.ACTION_DRAG_EXITED:
 
@@ -64,9 +63,10 @@ public class ItemDragListener implements View.OnDragListener{
                     receivingImage.setOnClickListener(v->receivingImage.rotateCard());
                     //Drawable transparentDrawable = new ColorDrawable(Color.TRANSPARENT);
                     //givingImage.setImageDrawable(transparentDrawable);
-                    Drawable transparentDrawable = new ColorDrawable(Color.WHITE);
+                    //Drawable transparentDrawable = new ColorDrawable(Color.WHITE);
+
                     givingImage.setOnDragListener(new PlayerHandDragListener(gameController));
-                    Drawable drawable=gameController.getContext().getDrawable(R.drawable.central_path);
+                    Drawable drawable=gameController.getInitialDrawable();
                     givingImage.setImageDrawable(drawable);
                     receivingImage.setOnDragListener(null); /**must no longer take any cards if a card was placed on it*/
                     givingImage.setHas_card(false);

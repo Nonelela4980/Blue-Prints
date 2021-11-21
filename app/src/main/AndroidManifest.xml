@@ -9,7 +9,10 @@
         android:roundIcon="@drawable/logo_p3"
         android:supportsRtl="true"
         android:theme="@style/Theme.BluePrints">
-        <activity android:name=".playActivity" android:screenOrientation="sensorLandscape">
+        <activity android:name=".MainActivity2"></activity>
+        <activity
+            android:name=".playActivity"
+            android:screenOrientation="sensorLandscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,12 +22,9 @@
         <activity
             android:name=".connect_activity"
             android:screenOrientation="sensorLandscape" />
-
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="sensorLandscape">
-
-        </activity>
+            android:screenOrientation="sensorLandscape"></activity>
 
         <meta-data
             android:name="preloaded_fonts"

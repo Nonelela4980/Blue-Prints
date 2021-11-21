@@ -25,16 +25,13 @@ public class playActivity extends AppCompatActivity  implements Neigbours {
     ItemDragListener dragListener;
     ImageCard start;
     ImageView undo_actionBtn, confirm_actionBtn,bin,bin_lid;
-
-    //grid0,grid1,grid2,grid3,grid4;
-//    ImageCard grid5,grid6,grid7,grid8,grid9;
-//    ImageCard grid10,grid11,grid12,grid13,grid14;
     ImageCard[] gridBoard;
     ImageCard[] playerDeckCards;
     int[] player_deckCards; //keeps the id of the player deck ImageCardViews;
     GameController gameController;
     int[][] neighbours = new int[3][5]; //keeps grid item id's
-
+    private ImageCard[] deckCards;
+    Drawable cardInitialDrawable;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +39,6 @@ public class playActivity extends AppCompatActivity  implements Neigbours {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide(); //hide the actionbar for this activity
         setContentView(R.layout.activity_play);
-
-
         gameController = new GameController(this, this,this);
         gridBoard = initializeGridBoard();
         playerDeckCards = initializePlayerDeckCards();
@@ -51,12 +46,26 @@ public class playActivity extends AppCompatActivity  implements Neigbours {
         confirm_actionBtn = findViewById(R.id.cofirm_actionBtn);
         bin= findViewById(R.id.bin);
         bin_lid= findViewById(R.id.bin_lid);
-
         bin.setOnDragListener(new TrashBinListener(gameController));
         bin_lid.setOnDragListener(new TrashBinListener(gameController));
-        ImageCard imageCard=findViewById(R.id.player_deck2);
+        ImageCard imageCard=findViewById(R.id.player_deck1);
+        ImageCard imageCard2=findViewById(R.id.player_deck2);
+        ImageCard imageCard3=findViewById(R.id.player_deck3);
+        ImageCard imageCard4=findViewById(R.id.player_deck4);
+        ImageCard imageCard5=findViewById(R.id.player_deck5);
+
         Drawable drawable=getDrawable(R.drawable.instruction_give_right_1_wood);
+        Drawable drawable2=getDrawable(R.drawable.instruction_blueprint_3_brick);
+        Drawable drawable3=getDrawable(R.drawable.instruction_give_2_brick);
+        Drawable drawable4=getDrawable(R.drawable.instruction_blueprint_2_brick);
+        Drawable drawable5=getDrawable(R.drawable.instruction_bank_give_1_brick);
+
+        getPlayerDeckCards();
         imageCard.setImageDrawable(drawable);
+        imageCard2.setImageDrawable(drawable2);
+        imageCard3.setImageDrawable(drawable3);
+        imageCard4.setImageDrawable(drawable4);
+        imageCard5.setImageDrawable(drawable5);
     }
 
     //Initialize the ImageCards for the board
@@ -99,6 +108,17 @@ public class playActivity extends AppCompatActivity  implements Neigbours {
         return imageCards;
     }
 
+    public ImageCard[] getPlayerDeckCards(){
+        ImageCard card1=findViewById(R.id.player_deck1);
+        playerDeckCards[0]=card1;
+        cardInitialDrawable=card1.getDrawable();
+
+        return  playerDeckCards;
+    }
+
+    public Drawable getCardInitialDrawable(){
+        return cardInitialDrawable;
+    }
     //Initialize the ImageCards for the player deck
     private ImageCard[] initializePlayerDeckCards() {
         ImageCard[] player_cards = new ImageCard[5];
@@ -107,7 +127,6 @@ public class playActivity extends AppCompatActivity  implements Neigbours {
             String id = "player_deck" + k;
             player_cards[i] = (findViewById(getResources().getIdentifier(id, "id", getPackageName())));
             player_cards[i].setOnTouchListener(new ItemTouchListener());
-
         }
         return player_cards;
     }
@@ -117,13 +136,9 @@ public class playActivity extends AppCompatActivity  implements Neigbours {
         gameController.undo(undo_actionBtn, confirm_actionBtn);
     }
 
-
     public void confirm(View view) {
-
         gameController.confirm(undo_actionBtn, confirm_actionBtn);
-
     }
-
     @Override
     public int[][] getNeigbours() {
         return neighbours;
