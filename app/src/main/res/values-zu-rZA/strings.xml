@@ -12,4 +12,5 @@
     <string name="ip_address_error">Sicela ufake  i-IP Adress</string>
     <string name="round_count">Isiyingi</string>
     <string name="comfirmMove_title">Qinisekisa uHambisa</string>
+    <string name="match_making_title">ukwenza umdlalo...</string>
 </resources>

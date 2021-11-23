@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.blueprints">
-
+    package="com.example.capstone">
+<uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo_p3"
@@ -9,22 +9,22 @@
         android:roundIcon="@drawable/logo_p3"
         android:supportsRtl="true"
         android:theme="@style/Theme.BluePrints">
-        <activity android:name=".MainActivity2"></activity>
         <activity
-            android:name=".playActivity"
+            android:name="com.example.capstone.views.playActivity"
             android:screenOrientation="sensorLandscape">
+
+        </activity>
+        <activity
+            android:name="com.example.capstone.views.connect_activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.capstone.views.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".connect_activity"
-            android:screenOrientation="sensorLandscape" />
-        <activity
-            android:name=".MainActivity"
-            android:screenOrientation="sensorLandscape"></activity>
 
         <meta-data
             android:name="preloaded_fonts"

@@ -11,4 +11,5 @@
     <string name="ip_address_error">Please enter IP Address</string>
     <string name="round_count">Round 1/3</string>
     <string name="comfirmMove_title">Confirm Move</string>
+    <string name="match_making_title">Match making...</string>
 </resources>
