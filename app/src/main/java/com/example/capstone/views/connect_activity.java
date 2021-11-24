@@ -39,13 +39,7 @@ public class connect_activity extends AppCompatActivity {
 
         gameLobbyPlayers=findViewById(R.id.lobby_players);
         startBtn=findViewById(R.id.startBtn);
-        boolean hasPermission =
-                checkSelfPermission(Manifest.permission.INTERNET) ==
-                        PackageManager.PERMISSION_GRANTED;
-        if(hasPermission)
-        Log.i("HasPermission","permissions granted");
-        else
-            Log.i("HasPermission","permissions not granted");
+
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,8 +47,9 @@ public class connect_activity extends AppCompatActivity {
             }
         });
     }
-    public void startBtnClick() {
-        bluePrintClient=new BluePrintClient(message -> runOnUiThread(()->addMessage(message)));
+    public void startBtnClick()
+    {
+        bluePrintClient=new BluePrintClient(message -> runOnUiThread(()->addMessage(message)),()->runOnUiThread(this::startPlaying));
         bluePrintClient.connectToServer(ip_addressTextField.getText().toString());
         runOnUiThread(()->gameLobby.startMatchMaking());
     }
@@ -64,7 +59,15 @@ public class connect_activity extends AppCompatActivity {
         Intent intent=new Intent(getApplicationContext(),MainActivity.class);
         startActivity(intent);
     }
+
     public void addMessage(Message message){
             gameLobby.addMessage(message);
+    }
+
+    public void startPlaying()
+    {
+        gameLobby.stopMatchMaking();
+        Intent intent=new Intent(getApplicationContext(),playActivity.class);
+        startActivity(intent);
     }
 }

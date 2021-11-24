@@ -7,12 +7,15 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.capstone.models.cards.Assignment;
+
 public class ImageCard extends androidx.appcompat.widget.AppCompatImageView implements View.OnClickListener {
 
 
     boolean has_card=false;
     boolean isDeckCard=false;
     int dx,dy;
+    Assignment assignment=null; //assignment on the card
 
     public boolean isDeckCard() {
         return isDeckCard;

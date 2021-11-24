@@ -9,7 +9,6 @@ public class Player {
     int victoryPoints;
     List<Resource> resourceList;
     List<Assignment> assignmentCards;
-
     public Player(int victoryPoints, List<Resource> resourceList, List<Assignment> assignmentCards)
     {
         this.victoryPoints = victoryPoints;

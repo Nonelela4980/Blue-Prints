@@ -2,6 +2,9 @@ package com.example.capstone;
 
 import android.util.Log;
 
+import com.example.capstone.messages.server.SendPlayerCount;
+import com.example.capstone.messages.server.StartPlay;
+
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.InetAddress;
@@ -14,10 +17,12 @@ public class BluePrintClient {
     private ReadThread readThread;
     private WriteThread writeThread;
     private OnMessageReceived onMessageReceived;
+    private StartGame startGame;
     private String SERVER_ADDRESS;
     private int PORT_NUMBER=5000;
-    public BluePrintClient(OnMessageReceived onMessageReceived) {
+    public BluePrintClient(OnMessageReceived onMessageReceived,StartGame startGame) {
         this.onMessageReceived = onMessageReceived;
+        this.startGame=startGame;
     }
     /**Connects to the server*/
     public void connectToServer(String serverAddress){
@@ -26,13 +31,13 @@ public class BluePrintClient {
         readThread=new ReadThread();
         readThread.start();
     }
-
     public void displayMessage(Message message)
     {
         if(onMessageReceived==null)
             return;
         onMessageReceived.messageReceived(message);
     }
+
     public class ReadThread extends Thread{
         @Override
         public void run() {
@@ -54,8 +59,13 @@ public class BluePrintClient {
                     Log.i("ReadThread","User allowed to read messages");
                     message= (Message) in.readObject();
 
-                    displayMessage(message);
-                    Log.i("JoinedMessage",message.toString());
+                    if(message.getClass()== StartPlay.class)
+                        startGame.startGame();
+
+                    if(message.getClass()!= StartPlay.class)
+                        displayMessage(message);
+
+                    Log.i("Server>>",message.toString());
                 }
             }catch (Exception e){
                 Log.i("ReadThread","Error"+e.getMessage());
@@ -67,7 +77,9 @@ public class BluePrintClient {
             }
         }
     }
-    public class WriteThread extends Thread{
+
+    public class WriteThread extends Thread
+    {
         @Override
         public void run() {
             try
