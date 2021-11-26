@@ -1,8 +1,7 @@
-package com.example.capstone.controller.gamelogic;
+package com.example.capstone.models;
 
 import com.example.capstone.models.cards.Assignment;
 import com.example.capstone.models.resources.Resource;
-
 import java.util.List;
 
 public class Player {

@@ -1,5 +1,6 @@
 package com.example.capstone.views;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -17,6 +18,13 @@ public class ImageCard extends androidx.appcompat.widget.AppCompatImageView impl
     int dx,dy;
     Assignment assignment=null; //assignment on the card
 
+
+
+    public void setAssignment(Assignment assignment){
+        this.assignment=assignment;
+        this.setTag(assignment.get_drawable()); //will be use when drawable is sent to the server
+        setUpCard();
+    }
     public boolean isDeckCard() {
         return isDeckCard;
     }
@@ -44,6 +52,11 @@ public class ImageCard extends androidx.appcompat.widget.AppCompatImageView impl
     public ImageCard(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr)
     {
         super(context, attrs, defStyleAttr);
+    }
+
+    //set the drawable to the assignment picture
+    public void setUpCard(){
+        this.setImageResource(assignment.get_drawable());
     }
 
     public void rotateCard(){

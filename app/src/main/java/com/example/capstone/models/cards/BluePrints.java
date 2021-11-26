@@ -9,7 +9,8 @@ public class BluePrints extends Assignment {
 
     private int victoryPoints;
 
-    public BluePrints(int direction, Resource resource) {
+    public BluePrints(int victoryPoints,int direction, Resource resource) {
+        this.victoryPoints=victoryPoints;
         this.direction = direction;
         this.victoryPoints = 0;
         this.initialize(resource);
