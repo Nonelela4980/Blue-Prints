@@ -8,7 +8,6 @@ public abstract class Assignment {
 
     protected int direction;
     protected int drawable;
-    protected List<Resource> listOfResources;
 
     public int getDirection() {
         return direction;
@@ -27,14 +26,6 @@ public abstract class Assignment {
     public void setDrawable(String drawable_Url){
 
         this.drawable = drawable;
-    }
-
-    public List<Resource> getListOfResources() {
-        return listOfResources;
-    }
-
-    public void setListOfResources(List<Resource> listOfResources) {
-        this.listOfResources = listOfResources;
     }
     /**@param resource, is the resource that the card will have
      * this method is used to select the  right picture

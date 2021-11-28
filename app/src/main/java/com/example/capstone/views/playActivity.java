@@ -1,5 +1,4 @@
 package com.example.capstone.views;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,8 +9,10 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.capstone.BluePrintClient;
+import com.example.capstone.Message;
 import com.example.capstone.OnUpdateUI;
 import com.example.capstone.R;
 import com.example.capstone.controller.GameController;
@@ -19,6 +20,9 @@ import com.example.capstone.controller.ItemDragListener;
 import com.example.capstone.controller.ItemTouchListener;
 import com.example.capstone.controller.Neigbours;
 import com.example.capstone.controller.TrashBinListener;
+import com.example.capstone.messages.server.ChangeTurn;
+import com.example.capstone.messages.server.PlayerStarting;
+import com.example.capstone.messages.server.UpdateGameBoard;
 import com.example.capstone.models.cards.BankGive;
 import com.example.capstone.models.cards.BluePrints;
 import com.example.capstone.models.cards.IFCard;
@@ -26,7 +30,6 @@ import com.example.capstone.models.cards.LoopCard;
 import com.example.capstone.models.resources.Brick;
 import com.example.capstone.models.resources.Straw;
 import com.example.capstone.models.resources.Wood;
-
 public class playActivity extends AppCompatActivity implements Neigbours {
     ItemDragListener dragListener;
     ImageCard start;
@@ -39,7 +42,6 @@ public class playActivity extends AppCompatActivity implements Neigbours {
     int[][] neighbours = new int[3][5]; //keeps grid item id's
     private ImageCard[] deckCards;
     Drawable cardInitialDrawable;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,9 +65,7 @@ public class playActivity extends AppCompatActivity implements Neigbours {
         bin.setOnDragListener(new TrashBinListener(gameController));
         bin_lid.setOnDragListener(new TrashBinListener(gameController));
 
-        BluePrintClient.setOnUpdateUI((id, drawable) -> runOnUiThread(() -> {
-            updateBoard(id, drawable);
-        }));
+        BluePrintClient.setOnUpdateUI((message)-> runOnUiThread(() -> uiUpdate(message)));
 
         gameController.playerHand.add(imageCard1);
         gameController.playerHand.add(imageCard2);
@@ -75,10 +75,8 @@ public class playActivity extends AppCompatActivity implements Neigbours {
         getPlayerDeckCards();
         gameController.setUpPlayerHand();
     }
-
     //Initialize the ImageCards for the board
     public ImageCard[] initializeGridBoard() {
-
         ImageCard[] imageCards = new ImageCard[15];
         start = findViewById(R.id.start);
 
@@ -114,23 +112,46 @@ public class playActivity extends AppCompatActivity implements Neigbours {
         }
         return imageCards;
     }
-
-    public void updateBoard(int id, int drawable) {
-        ImageCard imageCard = findViewById(id);
-        imageCard.setImageResource(drawable);
+    //Updates UI of the game when an action is performed by a player
+    public void uiUpdate(Message message)
+    {
+        if(message.getClass()== UpdateGameBoard.class)
+        {
+            UpdateGameBoard updateGameBoard = (UpdateGameBoard) message;
+            ImageCard imageCard = findViewById(updateGameBoard.cardID);
+            imageCard.setImageResource(updateGameBoard.drawable);
+        }
+        else if(message.getClass()== PlayerStarting.class)
+        {
+            String me=message.toString();
+          Toast toast= Toast.makeText(getApplicationContext(),me,Toast.LENGTH_LONG); //tells other players who is starting
+            toast.show();
+        }
+        else if(message.getClass()== ChangeTurn.class)
+        {
+            //the message sent is a user name if its the player's username then the player should be able
+            if(!(message.toString().equals(BluePrintClient.username))){
+                gameController.setPlayingStatus(true);
+                Toast toast= Toast.makeText(getApplicationContext(),message.toString()+"'s turn",Toast.LENGTH_LONG);
+                toast.show(); //tell clients who's playing
+            }
+            else
+                {
+                gameController.setPlayingStatus(false);
+                Toast toast= Toast.makeText(getApplicationContext(),message.toString(),Toast.LENGTH_LONG);
+                toast.show();//tell clients who's playing
+            }
+        }
     }
-
     public ImageCard[] getPlayerDeckCards() {
         ImageCard card1 = findViewById(R.id.player_deck1);
         playerDeckCards[0] = card1;
         cardInitialDrawable = card1.getDrawable();
         return playerDeckCards;
     }
-
     public Drawable getCardInitialDrawable() {
         return cardInitialDrawable;
     }
-
     //Initialize the ImageCards for the player deck
     private ImageCard[] initializePlayerDeckCards() {
         ImageCard[] player_cards = new ImageCard[5];
@@ -142,8 +163,6 @@ public class playActivity extends AppCompatActivity implements Neigbours {
         }
         return player_cards;
     }
-
-
     public void undo(View view) {
         gameController.undo(undo_actionBtn, confirm_actionBtn);
     }
@@ -151,9 +170,12 @@ public class playActivity extends AppCompatActivity implements Neigbours {
     public void confirm(View view) {
         gameController.confirm(undo_actionBtn, confirm_actionBtn);
     }
-
     @Override
     public int[][] getNeigbours() {
         return neighbours;
+    }
+
+    public void quitGame(View view) {
+
     }
 }

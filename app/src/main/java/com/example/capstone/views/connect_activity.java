@@ -52,7 +52,7 @@ public class connect_activity extends AppCompatActivity {
     //connects to the server, if connection was successful player is taken to the game lobby, and it waits for other players to connect
     public void startBtnClick() {
         bluePrintClient = new BluePrintClient(message -> runOnUiThread(() -> addMessage(message)), () -> runOnUiThread(this::startPlaying));
-        bluePrintClient.connectToServer(ip_addressTextField.getText().toString());
+        bluePrintClient.connectToServer(ip_addressTextField.getText().toString(),name_textField.getText().toString());
 //        if (bluePrintClient.isConnected) {
             runOnUiThread(() -> gameLobby.startMatchMaking()); //starts the lobby
 //        } else {

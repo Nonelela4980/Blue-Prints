@@ -47,8 +47,9 @@ public class GameController {
     float lidInitial_rotate = 0;
     private Neigbours neigbours;
     ImageCard[] board;
-
-    public GameController(Context context, playActivity activity, Neigbours neigbours) {
+    public static boolean isPlaying;
+    public GameController(Context context, playActivity activity, Neigbours neigbours)
+    {
         this.context = context;
         this.activity = activity;
         this.neigbours = neigbours;
@@ -57,23 +58,25 @@ public class GameController {
         AssignmentCards();
         initializeDeckCards();
         initializePlayerHandCards();
-
     }
 
-    public void Show_theActionButtons(ImageView undo, ImageView confirmBtn) {
+    public void setPlayingStatus(boolean status){
+        isPlaying=status;
+        lockPlayerHandDeck();
+    }
+
+    public void Show_theActionButtons(ImageView undo, ImageView confirmBtn){
         undo.setVisibility(View.VISIBLE);
         confirmBtn.setVisibility(View.VISIBLE);
     }
 
     //Randomly selects cards from the assignment cards list
-    public void setUpPlayerHand() {
-
+    public void setUpPlayerHand(){
         playerHand.forEach(imageCard -> {
-            int indx = (int) Math.floor(Math.random() * ((assignmentCards.size() - 1) - 0 + 1) + 0);
+            int indx =(int) Math.floor(Math.random() * ((assignmentCards.size() - 1) - 0 + 1) + 0);
             imageCard.setAssignment(assignmentCards.get(indx));
         });
     }
-
     //Creates an instance of the cardImage
     public void AssignmentCards() {
         assignmentCards.add(new BankGive(270, new Brick(1)));
@@ -189,19 +192,16 @@ public class GameController {
 
     public void lockNeigbours() {
         int[][] temp = neigbours.getNeigbours();
-
         /**If card was drag to the centre*/
         if (curGridCard.getDx() == 1) {
             int top = temp[0][curGridCard.getDy()];
             int bottom = temp[2][curGridCard.getDy()];
-
             //Log.i("bound","dx is"+curGridCard.getDx());
             ImageCard topCard = (ImageCard) ((playActivity) context).findViewById(top);
             ImageCard bottomCard = (ImageCard) ((playActivity) context).findViewById(bottom);
             //lock the drag listeners
             topCard.setOnDragListener(null);
             bottomCard.setOnDragListener(null);
-
         } else if (curGridCard.getDx() == 0 || curGridCard.getDx() == 2) {
             //we lock the centre
             int cardId = temp[1][curGridCard.getDy()];
@@ -265,9 +265,8 @@ public class GameController {
         lockNeigbours();
         undo_actionBtn.setVisibility(View.INVISIBLE);
         confirm_actionBtn.setVisibility(View.INVISIBLE);
-        BluePrintClient.sendMessage(new CardDropped(ItemDragListener.cardId, ItemDragListener.card_drawable));
+        BluePrintClient.sendMessage(new CardDropped(ItemDragListener.cardId, ItemDragListener.card_drawable)); //send message to the server
     }
-
     /**
      * When a player drags a card from the player hand the bin opens only removes the card if dropped on it
      */
@@ -307,15 +306,29 @@ public class GameController {
         deckCard2.setOnTouchListener(new ItemTouchListener());
         deckCard3.setOnTouchListener(new ItemTouchListener());
 
-//        unseen.setOnDragListener(new TopDeckCardListener(this));
-//        deckCard1.setOnDragListener(new TopDeckCardListener(this));
-//        deckCard2.setOnDragListener(new TopDeckCardListener(this));
-//        deckCard3.setOnDragListener(new TopDeckCardListener(this));
-
         unseen.setDeckCard(true);
         deckCard1.setDeckCard(true);
         deckCard2.setDeckCard(true);
         deckCard3.setDeckCard(true);
+    }
+
+    /**When a player is not their turn the playerhand at  the bottom won't be their's so,
+     * This method locks the playerhand for players not playing not to touch and drag and drop other player's cards
+     * */
+    public void lockPlayerHandDeck(){
+        // if the player is playing it should be able to drag and drop cards
+        //but if its not playing it shouldn't drag and drop the cards on the deck
+        if(isPlaying)
+        {
+            playerHand.forEach(imageCard -> {
+                imageCard.setOnTouchListener(new ItemTouchListener());
+            });
+        }
+        else{
+            playerHand.forEach(imageCard ->{
+                imageCard.setOnTouchListener(null);
+            });
+        }
     }
 
     private void initializePlayerHandCards() {
@@ -325,11 +338,6 @@ public class GameController {
         ImageCard card4 = (ImageCard) ((playActivity) context).findViewById(R.id.player_deck4);
         ImageCard card5 = (ImageCard) ((playActivity) context).findViewById(R.id.player_deck5);
 
-//        card1.setOnDragListener(new PlayerHandDragListener(this));
-//        card2.setOnDragListener(new PlayerHandDragListener(this));
-//        card3.setOnDragListener(new PlayerHandDragListener(this));
-//        card4.setOnDragListener(new PlayerHandDragListener(this));
-//        card5.setOnDragListener(new PlayerHandDragListener(this));
         card1.setOnDragListener(new TopDeckCardListener(this));
         card2.setOnDragListener(new TopDeckCardListener(this));
         card3.setOnDragListener(new TopDeckCardListener(this));
@@ -343,7 +351,7 @@ public class GameController {
         card5.setHas_card(true);
     }
 
-    public Drawable getInitialDrawable() {
+    public Drawable getInitialDrawable(){
         return ((playActivity) context).getCardInitialDrawable();
     }
 }

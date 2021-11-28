@@ -4,9 +4,6 @@ import com.example.capstone.Message;
 public class ChangeTurn extends Message {
     private static final long serialVersionUID = 11L;
     String username;
-    public ChangeTurn(String username) {
-        this.username = username;
-    }
     @Override
     public String toString(){
         return username;
